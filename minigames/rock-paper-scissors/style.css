@@ -1,0 +1,88 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 500px;
+}
+
+.back-link {
+    display: block;
+    text-align: left;
+    margin-bottom: 1rem;
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.score-board {
+    border: 3px solid #333;
+    border-radius: 4px;
+    width: 200px;
+    margin: 20px auto;
+    font-size: 46px;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.badge {
+    background: #e2584d;
+    color: white;
+    font-size: 14px;
+    padding: 2px 10px;
+    position: absolute;
+    border-radius: 4px;
+}
+
+#player-label {
+    top: 30px;
+    left: -25px;
+}
+
+#computer-label {
+    top: 30px;
+    right: -30px;
+}
+
+.result {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+    height: 60px; /* Reserve space to prevent layout shifts */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.choices {
+    margin: 30px 0 15px;
+}
+
+.choice {
+    border: 4px solid #333;
+    border-radius: 50%;
+    padding: 20px;
+    margin: 0 15px;
+    font-size: 48px;
+    cursor: pointer;
+    background: white;
+    transition: all 0.3s ease;
+    line-height: 1; /* Helps align emojis consistently */
+}
+
+.choice:hover {
+    background: #f0f2f5;
+    transform: scale(1.1);
+}
+
