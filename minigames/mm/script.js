@@ -1,5 +1,6 @@
 const gameBoard = document.querySelector('.memory-game');
 const movesCountSpan = document.getElementById('moves-count');
+const timerSpan = document.getElementById('timer');
 const winMessageEl = document.getElementById('win-message');
 const restartButton = document.getElementById('restart-button');
 
@@ -10,6 +11,8 @@ let lockBoard = false;
 let firstCard, secondCard;
 let moves = 0;
 let matchedPairs = 0;
+let timer = 0;
+let timerInterval = null;
 
 function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
@@ -37,6 +40,11 @@ function createBoard() {
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return; // Prevent double-clicking the same card
+
+    // Start the timer on the very first card flip of the game
+    if (moves === 0 && !hasFlippedCard) {
+        startTimer();
+    }
 
     this.classList.add('flip');
 
@@ -69,12 +77,26 @@ function disableCards() {
     resetBoard();
 
     if (matchedPairs === cardEmojis.length) {
+        stopTimer();
         setTimeout(() => { // A brief delay for the last card to finish flipping
             winMessageEl.textContent = `You won in ${moves} moves! 🎉`;
             winMessageEl.classList.remove('hidden');
             triggerConfetti();
         }, 600);
     }
+}
+
+function startTimer() {
+    if (timerInterval) return; // Prevent multiple intervals
+    timerInterval = setInterval(() => {
+        timer++;
+        timerSpan.textContent = timer;
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
 }
 
 function triggerConfetti() {
@@ -109,6 +131,9 @@ function resetBoard() {
 function restartGame() {
     moves = 0;
     matchedPairs = 0;
+    timer = 0;
+    timerSpan.textContent = timer;
+    stopTimer();
     winMessageEl.classList.add('hidden');
     movesCountSpan.textContent = moves;
     resetBoard();

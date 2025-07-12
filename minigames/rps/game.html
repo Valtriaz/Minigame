@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <canvas id="confetti-canvas"></canvas>
     <div class="container">
         <a href="../../index.html" class="back-link">&larr; Back to Arcade</a>
         <h1>Rock, Paper, Scissors</h1>
@@ -21,12 +22,18 @@
             <p>Make your move!</p>
         </div>
 
-        <div class="choices">
+        <div class="choices" id="choices-div">
             <button class="choice" id="rock">✊</button>
             <button class="choice" id="paper">✋</button>
             <button class="choice" id="scissors">✌️</button>
         </div>
+
+        <div id="game-over-screen" class="hidden">
+            <h2 id="final-message"></h2>
+            <button id="play-again-button">Play Again</button>
+        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

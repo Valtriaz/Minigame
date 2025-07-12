@@ -27,7 +27,16 @@ body {
 
 .info {
     font-size: 1.2rem;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .memory-game {

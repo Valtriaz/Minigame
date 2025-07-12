@@ -1,12 +1,20 @@
 // Cache the DOM elements for performance
 let playerScore = 0;
 let computerScore = 0;
+let gameIsOver = false;
+const WINNING_SCORE = 3;
+
+const container = document.querySelector(".container");
 const playerScore_span = document.getElementById("player-score");
 const computerScore_span = document.getElementById("computer-score");
 const result_p = document.querySelector(".result > p");
 const rock_button = document.getElementById("rock");
 const paper_button = document.getElementById("paper");
 const scissors_button = document.getElementById("scissors");
+const choicesDiv = document.getElementById("choices-div");
+const gameOverScreen = document.getElementById("game-over-screen");
+const finalMessage = document.getElementById("final-message");
+const playAgainButton = document.getElementById("play-again-button");
 
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
@@ -35,6 +43,10 @@ function win(userChoice, computerChoice) {
     result_p.innerHTML = `Your ${convertToEmoji(userChoice)} beats their ${convertToEmoji(computerChoice)}. You win! 🔥`;
     userChoice_div.classList.add('green-glow');
     setTimeout(() => userChoice_div.classList.remove('green-glow'), 500);
+
+    if (playerScore === WINNING_SCORE) {
+        endGame("You won the match! 🎉", true);
+    }
 }
 
 function lose(userChoice, computerChoice) {
@@ -46,6 +58,10 @@ function lose(userChoice, computerChoice) {
     result_p.innerHTML = `Their ${convertToEmoji(computerChoice)} beats your ${convertToEmoji(userChoice)}. You lose... 😔`;
     userChoice_div.classList.add('red-glow');
     setTimeout(() => userChoice_div.classList.remove('red-glow'), 500);
+
+    if (computerScore === WINNING_SCORE) {
+        endGame("The computer won the match... 😔", false);
+    }
 }
 
 function draw(userChoice, computerChoice) {
@@ -56,6 +72,8 @@ function draw(userChoice, computerChoice) {
 }
 
 function game(userChoice) {
+    if (gameIsOver) return;
+
     const computerChoice = getComputerChoice();
     // A clever way to check all outcomes
     switch (userChoice + computerChoice) {
@@ -77,7 +95,45 @@ function game(userChoice) {
     }
 }
 
+function endGame(message, playerWon) {
+    gameIsOver = true;
+    finalMessage.textContent = message;
+    choicesDiv.classList.add('hidden');
+    gameOverScreen.classList.remove('hidden');
+
+    if (playerWon) {
+        triggerConfetti();
+    } else {
+        container.classList.add('shake');
+        // Remove the class after the animation completes
+        setTimeout(() => container.classList.remove('shake'), 500);
+    }
+}
+
+function triggerConfetti() {
+    if (typeof confetti !== 'function') return;
+    const myCanvas = document.getElementById('confetti-canvas');
+    if (!myCanvas) return;
+
+    const myConfetti = confetti.create(myCanvas, { resize: true });
+
+    myConfetti({ particleCount: 200, spread: 160, origin: { y: 0.6 } });
+}
+
+function resetGame() {
+    gameIsOver = false;
+    playerScore = 0;
+    computerScore = 0;
+    playerScore_span.textContent = playerScore;
+    computerScore_span.textContent = computerScore;
+
+    result_p.textContent = "Make your move!";
+    gameOverScreen.classList.add('hidden');
+    choicesDiv.classList.remove('hidden');
+}
+
 // Add event listeners to the buttons
 rock_button.addEventListener('click', () => game("rock"));
 paper_button.addEventListener('click', () => game("paper"));
 scissors_button.addEventListener('click', () => game("scissors"));
+playAgainButton.addEventListener('click', resetGame);
