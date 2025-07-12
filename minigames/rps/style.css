@@ -86,3 +86,17 @@ body {
     transform: scale(1.1);
 }
 
+.green-glow {
+    border-color: #4dcc7d;
+    box-shadow: 0 0 20px #31b43a;
+}
+
+.red-glow {
+    border-color: #fc121b;
+    box-shadow: 0 0 20px #d01115;
+}
+
+.gray-glow {
+    border-color: #464647;
+    box-shadow: 0 0 20px #25292b;
+}
