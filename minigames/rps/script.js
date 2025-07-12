@@ -30,6 +30,8 @@ function win(userChoice, computerChoice) {
     const userChoice_div = document.getElementById(userChoice);
     playerScore++;
     playerScore_span.innerHTML = playerScore;
+    playerScore_span.classList.add('score-pulse');
+    setTimeout(() => playerScore_span.classList.remove('score-pulse'), 300);
     result_p.innerHTML = `Your ${convertToEmoji(userChoice)} beats their ${convertToEmoji(computerChoice)}. You win! 🔥`;
     userChoice_div.classList.add('green-glow');
     setTimeout(() => userChoice_div.classList.remove('green-glow'), 500);
@@ -39,6 +41,8 @@ function lose(userChoice, computerChoice) {
     const userChoice_div = document.getElementById(userChoice);
     computerScore++;
     computerScore_span.innerHTML = computerScore;
+    computerScore_span.classList.add('score-pulse');
+    setTimeout(() => computerScore_span.classList.remove('score-pulse'), 300);
     result_p.innerHTML = `Their ${convertToEmoji(computerChoice)} beats your ${convertToEmoji(userChoice)}. You lose... 😔`;
     userChoice_div.classList.add('red-glow');
     setTimeout(() => userChoice_div.classList.remove('red-glow'), 500);

@@ -1,0 +1,115 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.back-link {
+    display: block;
+    text-align: left;
+    margin-bottom: 1rem;
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.info {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.memory-game {
+    width: 440px;
+    height: 440px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    perspective: 1000px; /* For the 3D flip effect */
+}
+
+.memory-card {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.memory-card:active {
+    transform: scale(0.97);
+    transition: transform 0.2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    position: absolute;
+    border-radius: 8px;
+    background: #1a73e8;
+    backface-visibility: hidden; /* Hides the back of the element when flipped */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+}
+
+.front-face {
+    background: #fff;
+    color: #1a73e8;
+    transform: rotateY(180deg);
+    border: 2px solid #1a73e8;
+}
+
+#restart-button {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#restart-button:hover {
+    background-color: #218838;
+}
+
+#win-message {
+    color: #28a745;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+.hidden {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+}
