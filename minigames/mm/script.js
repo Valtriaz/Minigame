@@ -4,7 +4,6 @@ const winMessageEl = document.getElementById('win-message');
 const restartButton = document.getElementById('restart-button');
 
 const cardEmojis = ['🍕', '🎉', '🎈', '🎁', '⭐', '🚀', '💡', '💻'];
-const gameCards = [...cardEmojis, ...cardEmojis]; // Create pairs
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -17,7 +16,8 @@ function shuffle(array) {
 }
 
 function createBoard() {
-    shuffle(gameCards);
+    const gameCards = [...cardEmojis, ...cardEmojis]; // Create fresh pairs for each game
+    shuffle(gameCards); 
     gameBoard.innerHTML = ''; // Clear previous board
     gameCards.forEach(emoji => {
         const card = document.createElement('div');
@@ -72,8 +72,22 @@ function disableCards() {
         setTimeout(() => { // A brief delay for the last card to finish flipping
             winMessageEl.textContent = `You won in ${moves} moves! 🎉`;
             winMessageEl.classList.remove('hidden');
+            triggerConfetti();
         }, 600);
     }
+}
+
+function triggerConfetti() {
+    const myCanvas = document.getElementById('confetti-canvas');
+    if (!myCanvas || typeof confetti !== 'function') return;
+
+    const myConfetti = confetti.create(myCanvas, { resize: true });
+
+    myConfetti({
+        particleCount: 200,
+        spread: 160,
+        origin: { y: 0.6 }
+    });
 }
 
 function unflipCards() {
