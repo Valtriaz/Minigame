@@ -9,29 +9,29 @@
 <body>
     <canvas id="confetti-canvas"></canvas>
     <div class="container">
-        <a href="../../index.html" class="back-link">&larr; Back to Arcade</a>
-        <h1>Rock, Paper, Scissors</h1>
-
+        <header style="width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; margin-bottom:1.2rem;">
+            <a href="../../index.html" class="back-link" style="align-self:flex-start; margin-bottom:0.5rem; color:#1976d2; font-weight:500; text-decoration:none;">&larr; Back to Arcade</a>
+            <span style="font-size:2.5rem;">✊</span>
+            <h1 style="margin:0;">Rock, Paper, Scissors</h1>
+        </header>
         <div class="score-board">
             <div id="player-label" class="badge">Player</div>
             <div id="computer-label" class="badge">Comp</div>
             <span id="player-score">0</span>:<span id="computer-score">0</span>
         </div>
-
         <div class="result">
             <p>Make your move!</p>
         </div>
-
         <div class="choices" id="choices-div">
             <button class="choice" id="rock">✊</button>
             <button class="choice" id="paper">✋</button>
             <button class="choice" id="scissors">✌️</button>
         </div>
-
-        <div id="game-over-screen" class="hidden">
-            <h2 id="final-message"></h2>
-            <button id="play-again-button">Play Again</button>
+        <div id="game-over-screen" class="hidden" style="display:flex; flex-direction:column; align-items:center;">
+            <h2 id="final-message" style="text-align:center;"></h2>
+            <button id="play-again-button" style="margin:0.5rem auto 0; display:none;">Play Again</button>
         </div>
+        <div style="margin-top:2.5rem; font-size:0.95rem; color:#888; text-align:center;">Made with ❤️ for fun!</div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>

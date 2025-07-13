@@ -8,12 +8,30 @@
 </head>
 <body>
     <div class="container">
-        <h1>Minigame Arcade</h1>
-        <p>Choose a game to play:</p>
-        <nav class="game-list">
-            <a href="minigames/rps/game.html" class="game-link">Rock, Paper, Scissors</a>
-            <a href="minigames/mm/game.html" class="game-link">Memory Match</a>
+        <header style="width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; margin-bottom:1.2rem;">
+            <span style="font-size:2.8rem;">🎲</span>
+            <h1 style="margin:0;">Minigame Arcade</h1>
+        </header>
+        <p style="font-size:1.08rem; color:#555; margin-bottom:2.2rem;">Choose a game to play:</p>
+        <nav class="game-list" style="width:100%;">
+            <div class="game-card" style="background: linear-gradient(120deg, #e3f0ff 0%, #f0f2f5 100%);">
+                <span class="game-card-emoji" style="background:#fff; border-radius:50%; box-shadow:0 2px 8px rgba(26,115,232,0.08); padding:0.5rem;">✊</span>
+                <div class="game-card-content">
+                    <span class="game-card-title">Rock, Paper, Scissors</span>
+                    <span class="game-card-desc">Classic hand game. Can you beat the computer?</span>
+                    <a href="minigames/rps/game.html" class="game-card-link">Play</a>
+                </div>
+            </div>
+            <div class="game-card" style="background: linear-gradient(120deg, #e3f0ff 0%, #f0f2f5 100%);">
+                <span class="game-card-emoji" style="background:#fff; border-radius:50%; box-shadow:0 2px 8px rgba(26,115,232,0.08); padding:0.5rem;">🧩</span>
+                <div class="game-card-content">
+                    <span class="game-card-title">Memory Match</span>
+                    <span class="game-card-desc">Test your memory by matching pairs of cards!</span>
+                    <a href="minigames/mm/game.html" class="game-card-link">Play</a>
+                </div>
+            </div>
         </nav>
+        <div style="margin-top:2.5rem; font-size:0.95rem; color:#888; text-align:center;">Made with ❤️ for fun!</div>
     </div>
 </body>
 </html>

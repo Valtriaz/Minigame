@@ -100,6 +100,7 @@ function endGame(message, playerWon) {
     finalMessage.textContent = message;
     choicesDiv.classList.add('hidden');
     gameOverScreen.classList.remove('hidden');
+    playAgainButton.style.display = "block";
 
     if (playerWon) {
         triggerConfetti();
@@ -130,6 +131,8 @@ function resetGame() {
     result_p.textContent = "Make your move!";
     gameOverScreen.classList.add('hidden');
     choicesDiv.classList.remove('hidden');
+    finalMessage.textContent = "";
+    playAgainButton.style.display = "none";
 }
 
 // Add event listeners to the buttons
