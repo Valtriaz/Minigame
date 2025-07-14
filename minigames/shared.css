@@ -1,0 +1,42 @@
+/* /minigames/shared.css */
+
+/* --- Shared Game Page Styles --- */
+.game-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.game-header .back-link {
+    align-self: flex-start;
+    margin-bottom: 0.5rem;
+    color: #1976d2;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.game-header .header-emoji {
+    font-size: 2.5rem;
+}
+
+.game-header h1 {
+    margin: 0;
+}
+
+.game-footer {
+    margin-top: 2.5rem;
+    font-size: 0.95rem;
+    color: #888;
+    text-align: center;
+}
+
+/* --- Dark Mode Overrides for Shared Styles --- */
+@media (prefers-color-scheme: dark) {
+    .game-header .back-link {
+        color: #90cdf4;
+    }
+}
