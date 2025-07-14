@@ -1,6 +1,3 @@
-/* /minigames/shared.css */
-
-/* --- Shared Game Page Styles --- */
 .game-header {
     width: 100%;
     display: flex;
@@ -17,6 +14,11 @@
     color: #1976d2;
     font-weight: 500;
     text-decoration: none;
+    transition: color 0.2s;
+}
+
+.game-header .back-link:hover {
+    color: #1558b8;
 }
 
 .game-header .header-emoji {
@@ -34,9 +36,39 @@
     text-align: center;
 }
 
-/* --- Dark Mode Overrides for Shared Styles --- */
+.game-button {
+    margin: 1.2rem auto 0;
+    display: block;
+    border-radius: 999px;
+    padding: 0.75rem 2rem;
+    background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.08rem;
+    box-shadow: 0 1px 8px rgba(26, 115, 232, 0.10);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.game-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #1558b8 60%, #1976d2 100%);
+}
+
 @media (prefers-color-scheme: dark) {
     .game-header .back-link {
         color: #90cdf4;
+    }
+    .game-header .back-link:hover {
+        color: #a7c5ff;
+    }
+    .game-button {
+        background: linear-gradient(90deg, #1976d2 60%, #334155 100%);
+        box-shadow: 0 2px 12px rgba(30, 60, 90, 0.22);
+    }
+    .game-button:hover {
+        background: linear-gradient(90deg, #334155 60%, #1976d2 100%);
+        filter: brightness(1.12);
     }
 }

@@ -50,7 +50,12 @@ body {
 }
 
 .header-title {
-    margin: 0;
+    color: #1976d2;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(26, 115, 232, 0.08);
 }
 
 .page-subtitle {
@@ -64,15 +69,6 @@ body {
     font-size: 0.95rem;
     color: #888;
     text-align: center;
-}
-
-h1 {
-    color: #1976d2;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1.2rem;
-    letter-spacing: 1px;
-    text-shadow: 0 2px 8px rgba(26, 115, 232, 0.08);
 }
 
 .game-list {
@@ -152,33 +148,6 @@ h1 {
     transform: scale(1.07);
 }
 
-.game-link {
-    display: flex;
-    align-items: center;
-    gap: 0.7em;
-    padding: 1rem 2rem;
-    background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 10px;
-    font-size: 1.13rem;
-    font-weight: 600;
-    box-shadow: 0 2px 12px rgba(26, 115, 232, 0.10);
-    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-    border: none;
-    position: relative;
-    z-index: 1;
-    letter-spacing: 1px;
-}
-
-.game-link:hover {
-    background: linear-gradient(90deg, #1558b8 60%, #1976d2 100%);
-    transform: translateY(-3px) scale(1.04);
-    box-shadow: 0 8px 24px rgba(26, 115, 232, 0.18);
-    filter: brightness(1.08);
-}
-
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(30px) scale(0.98); }
     to { opacity: 1; transform: translateY(0) scale(1); }
@@ -198,7 +167,7 @@ h1 {
         background: radial-gradient(circle, #334155 60%, transparent 100%);
         opacity: 0.3;
     }
-    h1 {
+    .header-title {
         color: #90cdf4;
         text-shadow: 0 2px 8px rgba(144, 205, 244, 0.12);
     }
@@ -208,11 +177,9 @@ h1 {
         box-shadow: 0 2px 12px rgba(30, 60, 90, 0.22);
     }
     .game-card-title {
-        /* FIX: Changed color for better contrast in dark mode */
         color: #a7c5ff;
     }
     .game-card-desc {
-        /* FIX: Changed color for better contrast in dark mode */
         color: #c8d7ee;
         opacity: 0.95;
     }
