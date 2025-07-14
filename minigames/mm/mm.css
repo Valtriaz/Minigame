@@ -1,0 +1,101 @@
+/* /minigames/mm/mm.css */
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #555;
+}
+
+#win-message {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2e7d32;
+    margin: 1rem 0;
+    min-height: 2.2rem; /* Reserve space to prevent layout shift */
+}
+
+.memory-game {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1rem;
+    perspective: 1000px; /* For the 3D flip effect */
+}
+
+.memory-card {
+    background-color: #e3f0ff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(30, 60, 90, 0.1);
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+    position: relative;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+    backface-visibility: hidden; /* Hides the back of the element when it's rotated */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.front-face {
+    font-size: clamp(2rem, 10vw, 3rem);
+    background: #fff;
+    color: #1976d2;
+    transform: rotateY(180deg);
+}
+
+.back-face {
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    /* The background-size property was removed as it was not being used */
+}
+
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* --- Dark Mode Adjustments --- */
+@media (prefers-color-scheme: dark) {
+    .stats-container {
+        color: #c8d7ee;
+    }
+    #win-message {
+        color: #81c784;
+    }
+    .memory-card {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .front-face {
+        background: #2d3748;
+        color: #90cdf4;
+    }
+    .back-face {
+        background: linear-gradient(135deg, #1a202c, #334155);
+    }
+}

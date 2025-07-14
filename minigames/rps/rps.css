@@ -1,0 +1,165 @@
+/* /minigames/rps/mm.css */
+/* All general theme styles (body, container, etc.) have been moved to shared.css */
+
+.score-board {
+    border: 3px solid #1976d2;
+    border-radius: 8px;
+    width: 200px;
+    margin: 20px auto;
+    font-size: 2.2rem;
+    padding: 15px 20px;
+    position: relative;
+    background: rgba(227, 240, 255, 0.5);
+    box-shadow: 0 2px 8px rgba(26, 115, 232, 0.08);
+}
+
+.badge {
+    background: #1976d2;
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 2px 10px;
+    position: absolute;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+#player-label {
+    top: 30px;
+    left: -25px;
+}
+
+#computer-label {
+    top: 30px;
+    right: -30px;
+}
+
+.result {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 20px 0;
+    height: 60px; /* Reserve space to prevent layout shifts */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1558b8;
+}
+
+.choices {
+    margin: 30px 0 15px;
+}
+
+.choice {
+    border: 4px solid #1976d2;
+    border-radius: 50%;
+    padding: 20px;
+    margin: 0 15px;
+    font-size: 2.2rem;
+    cursor: pointer;
+    background: #f0f2f5;
+    transition: all 0.3s ease;
+    line-height: 1; /* Helps align emojis consistently */
+    color: #1976d2;
+}
+
+.choice:hover {
+    background: #e3f0ff;
+    transform: scale(1.1);
+    color: #1558b8;
+}
+
+.green-glow {
+    border-color: #4dcc7d;
+    box-shadow: 0 0 20px #31b43a;
+}
+
+.red-glow {
+    border-color: #fc121b;
+    box-shadow: 0 0 20px #d01115;
+}
+
+.gray-glow {
+    border-color: #464647;
+    box-shadow: 0 0 20px #25292b;
+}
+
+@keyframes score-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+.score-pulse {
+    animation: score-pulse 0.3s ease-in-out;
+}
+
+#game-over-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+#final-message {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1558b8;
+    margin-bottom: 1rem;
+}
+
+/* The #play-again-button is now styled by the .game-button class in shared.css */
+
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    pointer-events: none; /* Allows clicks to pass through */
+}
+
+@keyframes screen-shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.shake {
+    animation: screen-shake 0.5s;
+}
+
+/* --- Dark Mode Adjustments for RPS-specific elements --- */
+@media (prefers-color-scheme: dark) {
+    #final-message {
+        color: #90cdf4;
+    }
+    .score-board {
+        border-color: #90cdf4;
+        background: rgba(52, 64, 85, 0.5);
+        color: #e3eafc;
+    }
+    .badge {
+        background: #334155;
+        color: #e3eafc;
+    }
+    .result {
+        color: #90cdf4;
+    }
+    .choice {
+        border-color: #90cdf4;
+        background: #232a34;
+        color: #90cdf4;
+    }
+    .choice:hover {
+        background: #334155;
+        color: #fff;
+    }
+}

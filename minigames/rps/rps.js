@@ -1,4 +1,3 @@
-// Cache the DOM elements for performance
 let playerScore = 0;
 let computerScore = 0;
 let gameIsOver = false;
@@ -20,12 +19,6 @@ function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
     const randomNumber = Math.floor(Math.random() * 3);
     return choices[randomNumber];
-}
-
-function convertToWord(word) {
-    if (word === "rock") return "Rock";
-    if (word === "paper") return "Paper";
-    return "Scissors";
 }
 
 function convertToEmoji(word) {
@@ -64,7 +57,7 @@ function lose(userChoice, computerChoice) {
     }
 }
 
-function draw(userChoice, computerChoice) {
+function draw(userChoice) {
     const userChoice_div = document.getElementById(userChoice);
     result_p.innerHTML = `It's a draw. You both chose ${convertToEmoji(userChoice)}.`;
     userChoice_div.classList.add('gray-glow');
@@ -90,7 +83,7 @@ function game(userChoice) {
         case "rockrock":
         case "paperpaper":
         case "scissorsscissors":
-            draw(userChoice, computerChoice);
+            draw(userChoice);
             break;
     }
 }
@@ -106,7 +99,6 @@ function endGame(message, playerWon) {
         triggerConfetti();
     } else {
         container.classList.add('shake');
-        // Remove the class after the animation completes
         setTimeout(() => container.classList.remove('shake'), 500);
     }
 }

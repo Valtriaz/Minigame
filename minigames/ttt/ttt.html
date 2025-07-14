@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="ttt.css">
+  <link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+<div class="container">
+  <header class="game-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Arcade</a>
+    <span class="header-emoji">⭕</span>
+    <h1>Tic-Tac-Toe</h1>
+  </header>
+
+  <div id="status-text" class="status">Your turn (X)</div>
+
+  <div class="board" id="board">
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+  </div>
+
+  <button id="restart-button" class="game-button">Restart Game</button>
+
+  <footer class="game-footer">Made with ❤️ for fun!</footer>
+</div>
+<script src="ttt.js"></script>
+</body>
+</html>

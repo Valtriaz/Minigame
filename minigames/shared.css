@@ -1,3 +1,45 @@
+/* /minigames/shared.css */
+
+/* Core body styles for all game pages */
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top for pages that might scroll */
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem 1rem; /* Add some padding for smaller screens */
+    background: linear-gradient(120deg, #e3f0ff 0%, #cfe2fa 100%);
+    color: #222;
+    transition: background 0.5s;
+    box-sizing: border-box;
+}
+
+/* Core container styles for all game pages */
+.container {
+    text-align: center;
+    background: rgba(255,255,255,0.98);
+    padding: 2rem 2.5rem;
+    border-radius: 22px;
+    box-shadow: 0 12px 36px rgba(30, 60, 90, 0.14);
+    border: 1.5px solid #dbeafe;
+    max-width: 500px;
+    width: 100%;
+    animation: fadeIn 0.7s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Shared Game Page Components --- */
+
+/* NEW: Shared utility class */
+.hidden {
+    display: none;
+}
+
 .game-header {
     width: 100%;
     display: flex;
@@ -27,6 +69,8 @@
 
 .game-header h1 {
     margin: 0;
+    color: #1976d2;
+    font-size: 2.2rem;
 }
 
 .game-footer {
@@ -56,7 +100,20 @@
     background: linear-gradient(90deg, #1558b8 60%, #1976d2 100%);
 }
 
+/* --- Dark Mode Overrides --- */
 @media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(120deg, #232a34 0%, #1a202c 100%);
+        color: #e3eafc;
+    }
+    .container {
+        background: rgba(30, 34, 44, 0.98);
+        border: 1.5px solid #334155;
+        box-shadow: 0 12px 36px rgba(0,0,0,0.32);
+    }
+    .game-header h1 {
+        color: #90cdf4;
+    }
     .game-header .back-link {
         color: #90cdf4;
     }

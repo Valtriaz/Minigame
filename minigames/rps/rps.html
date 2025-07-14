@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="rps.css">
     <link rel="stylesheet" href="../shared.css">
 </head>
 <body>
-<canvas id="confetti-canvas"></canvas>
 <div class="container">
+    <canvas id="confetti-canvas"></canvas>
     <header class="game-header">
         <a href="../../index.html" class="back-link">&larr; Back to Arcade</a>
         <span class="header-emoji">✊</span>
@@ -28,13 +28,15 @@
         <button class="choice" id="paper">✋</button>
         <button class="choice" id="scissors">✌️</button>
     </div>
-    <div id="game-over-screen" class="hidden" style="display:flex; flex-direction:column; align-items:center;">
-        <h2 id="final-message" style="text-align:center;"></h2>
-        <button id="play-again-button" style="margin:0.5rem auto 0; display:none;">Play Again</button>
+    <!-- UPDATED: Removed inline styles -->
+    <div id="game-over-screen" class="hidden">
+        <h2 id="final-message"></h2>
+        <!-- UPDATED: Using the shared game-button class -->
+        <button id="play-again-button" class="game-button">Play Again</button>
     </div>
     <footer class="game-footer">Made with ❤️ for fun!</footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-<script src="script.js"></script>
+<script src="rps.js"></script>
 </body>
 </html>
