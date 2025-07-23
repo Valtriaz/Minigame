@@ -1,0 +1,106 @@
+/* /minigames/wam/wam.css */
+
+/* --- Game-Specific Styles --- */
+
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.game-info h2 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+    max-width: 360px; /* Control max size */
+    aspect-ratio: 1 / 1; /* Maintain a square shape */
+    margin: 0 auto;
+    /* A fun hammer cursor! The text is a fallback. */
+    cursor: url('https://icons.iconarchive.com/icons/google/noto-emoji-objects/32/1f528-hammer-icon.png'), auto;
+}
+
+.square {
+    border: 2px solid #b0c4de;
+    border-radius: 12px;
+    background-color: #e8f0f8;
+    box-shadow: inset 0 4px 8px rgba(0,0,0,0.05);
+    transition: background-color 0.2s;
+}
+
+.square:hover {
+    background-color: #d8e2ef;
+}
+
+.mole {
+    /* A simple SVG mole to avoid needing extra image files */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%235C4033" /><circle cx="35" cy="40" r="5" fill="black" /><circle cx="65" cy="40" r="5" fill="black" /><path d="M 40 60 Q 50 70 60 60" stroke="black" fill="none" stroke-width="3" /></svg>');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #d1bfa7; /* Mole's hole color */
+}
+
+/* --- NEW: Animation Styles --- */
+.shake {
+    /* Applies the shake animation to the entire game container */
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+    10%, 90% { transform: translateX(-2px); }
+    20%, 80% { transform: translateX(4px); }
+    30%, 50%, 70% { transform: translateX(-6px); }
+    40%, 60% { transform: translateX(6px); }
+}
+
+#score.score-pop {
+    /* Applies the pop animation to the score number */
+    display: inline-block; /* Required for transform to work */
+    color: #28a745; /* Green for success */
+    animation: score-pop-anim 0.3s ease-out;
+}
+
+@keyframes score-pop-anim {
+    50% {
+        transform: scale(1.4);
+    }
+}
+
+
+/* --- Dark Mode Overrides --- */
+@media (prefers-color-scheme: dark) {
+    .game-info {
+        color: #c8d7ee;
+    }
+
+    .square {
+        border-color: #4a5568;
+        background-color: #2d3748;
+        box-shadow: inset 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .square:hover {
+        background-color: #384354;
+    }
+
+    .mole {
+        /* A mole with lighter features for dark mode */
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23A0522D" /><circle cx="35" cy="40" r="5" fill="white" /><circle cx="65" cy="40" r="5" fill="white" /><path d="M 40 60 Q 50 70 60 60" stroke="white" fill="none" stroke-width="3" /></svg>');
+        background-color: #4a3b32; /* Darker hole color */
+    }
+
+    /* NEW: Dark mode for score pop */
+    #score.score-pop {
+        color: #48bb78; /* A brighter green for dark backgrounds */
+    }
+}
